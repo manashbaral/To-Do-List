@@ -4,27 +4,27 @@ def display_menu():
     while True:
         print("\n============================================================\n")
         print("\t|-------------------------------|")
-        print("\t|\tTo-Do List Menu:\t|")
+        print("\t|\tTo-Do List Menu:\t|") #menu header
         print("\t|-------------------------------|")
-        print("\t|\t1. Add Task\t\t|")
-        print("\t|\t2. View Tasks\t\t|")
-        print("\t|\t3. Remove Task\t\t|")
-        print("\t|\t4. Update Task Status\t|")
-        print("\t|\t5. Exit\t\t\t|")
+        print("\t|\t1. Add Task\t\t|") #menu option 1
+        print("\t|\t2. View Tasks\t\t|") #menu option 2
+        print("\t|\t3. Remove Task\t\t|") #menu option 3
+        print("\t|\t4. Update Task Status\t|") #menu option 4
+        print("\t|\t5. Exit\t\t\t|") #menu option 5
         print("\t|-------------------------------|")
 
         choice = int(input("\n\tChoose an option (1-5):")) #get user choice
 
         if choice == 1:
-            add_task()
+            add_task() #add new task
         elif choice == 2:
-            view_tasks()
+            view_tasks() #view all tasks
         elif choice == 3:
-            remove_task()
+            remove_task() #remove a task
         elif choice == 4:
-            update_task_status()
+            update_task_status() #update the status of a task   
         elif choice == 5:
-            print("Exiting the program. Goodbye!")
+            print("Exiting the program. Goodbye!") #exit the program
             break
         else:
             print("Invalid choice. Please try again.")
@@ -70,7 +70,7 @@ def remove_task():
     
    #remove from the File 
     with open ("todo_list.txt","r") as file:
-        lines=file.readlines()
+        lines=file.readlines() #read all lines
 
         if not lines: #check if file is empty
             print("\tNo tasks in the to-do list.")
@@ -100,7 +100,7 @@ def update_task_status():
     task_to_update=str(input("\n\tEnter the task to update:")).strip() #get the task name to be updated
     
     
-    with open ("todo_list.txt","r+") as file:
+    with open ("todo_list.txt","r+") as file: #r+ mode to read and write
         lines=file.readlines()
 
         if not lines:
@@ -139,4 +139,4 @@ def update_task_status():
         file.writelines(lines)          
    
 
-display_menu()
+display_menu() #call the menu function to start the program
